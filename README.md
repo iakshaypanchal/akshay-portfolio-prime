@@ -1,16 +1,79 @@
-# React + Vite
+# Personal Portfolio – React + Vite (Apple-Inspired UI)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, minimal, Apple-styled personal portfolio built with **React**, **Vite**, and custom CSS inspired by **macOS Sonoma & Apple.com**.  
+Includes a fully functional **contact form integrated with Google Sheets** using Apps Script (no backend server required).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
 
-## React Compiler
+### **Frontend**
+- React 18  
+- Vite  
+- PrimeIcons (icons only)  
+- Vanilla CSS (custom Apple design system)  
+- IntersectionObserver scroll animations  
+- Custom Apple-style UI components
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### **Contact Form Backend**
+- Google Apps Script Web App  
+- Google Sheets as database  
+- JSON POST handler (no external server)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📦 Features
+
+### **🍏 Apple-Inspired Design**
+- macOS login-style centered avatar  
+- Soft, floating cards with depth shadows  
+- Glass-blur contact form panel  
+- Smooth fade-in scroll animation  
+- Rounded inputs styled like macOS Sonoma  
+- Horizontal project slider inspired by Apple TV
+
+### **📂 Sections**
+- **About** – avatar, name, title, summary, social icons  
+- **Skills** – responsive grid  
+- **Experience** – timeline cards  
+- **Projects** – horizontal scroll carousel  
+  - drag scroll with inertia  
+  - snap scrolling  
+  - left/right buttons  
+- **Contact** – Apple-glass input panel + Google Sheets integration
+
+### **📱 Fully Responsive**
+- Mobile-first layout  
+- Auto-scaled cards  
+- Projects carousel adapts nicely on touch screens  
+
+---
+
+## ✉️ Contact Form – Google Sheet Integration
+
+### **Apps Script (serverless backend)**
+
+```js
+function doPost(e) {
+  try {
+    const data = JSON.parse(e.postData.contents);
+
+    const ss = SpreadsheetApp.openByUrl("YOUR_SHEET_URL");
+    const sheet = ss.getSheetByName("Personal-Portfolio");
+
+    sheet.appendRow([
+      new Date(),
+      data.name,
+      data.message
+    ]);
+
+    return ContentService.createTextOutput(
+      JSON.stringify({ status: "success" })
+    ).setMimeType(ContentService.MimeType.JSON);
+
+  } catch (err) {
+    return ContentService.createTextOutput(
+      JSON.stringify({ status: "error", message: err })
+    ).setMimeType(ContentService.MimeType.JSON);
+  }
+}
