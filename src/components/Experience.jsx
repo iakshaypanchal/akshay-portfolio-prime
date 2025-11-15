@@ -16,7 +16,7 @@ export default function Experience({ items }) {
             {item.start} — {item.end}
           </p>
           <ul>
-            {item.bullets.map((b, i) => (
+            {item.responsibilities.map((b, i) => (
               <li key={i}>{b}</li>
             ))}
           </ul>

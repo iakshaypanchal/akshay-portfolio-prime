@@ -20,17 +20,23 @@ export const SKILLS = [
 
 export const EXPERIENCE = [
   {
-    company: "Tata Consultancy Services",
-    role: "Front-End Developer",
-    start: "July 2021",
-    end: "Present",
-    bullets: [
-      "Developed responsive UIs for EMTrack WebApp using React + PrimeReact.",
-      "Built Tire Process Report dashboards using Apache ECharts.",
-      "Enhanced Email Automation UI with new features.",
+    company: "Tata Consultancy Services (TCS)",
+    role: "Frontend Developer",
+    period: "July 2021 – Present",
+    responsibilities: [
+      "Delivered production-grade frontend solutions across web and mobile platforms using React.js, Angular, Ionic, and PrimeReact.",
+      "Led UI architecture decisions, reusable component development, and modernization of legacy applications.",
+      "Owned requirement gathering, design discussions, sprint planning, and weekly client communication.",
+      "Built shared component libraries including tables, filters, buttons, and chart wrappers to improve consistency across applications.",
+      "Upgraded outdated Angular + Ionic mobile app from a non-functional state to a stable, production-ready version.",
+      "Developed analytical dashboards and responsive layouts using Apache ECharts for data-heavy reporting modules.",
+      "Collaborated with backend, QA, and product teams to deliver features efficiently with high UI/UX quality.",
+      "Improved performance by reducing bundle size, optimizing render cycles, and fixing layout inefficiencies.",
+      "Handled bug triaging, code reviews, refactoring, and implemented best practices for long-term maintainability.",
     ],
   },
 ];
+
 export const PROJECTS = [
   {
     title: "Email Automation",
