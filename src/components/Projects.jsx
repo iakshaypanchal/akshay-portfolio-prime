@@ -5,11 +5,10 @@ import useScrollFade from "../hooks/useScrollFade";
 export default function Projects({ items }) {
   const ref = useScrollFade();
   const scrollerRef = useRef(null);
-  const dragging = useRef(false);
-  const last = useRef({ x: 0, t: 0, vx: 0 });
-  const raf = useRef(null);
 
-  // WHEEL → horizontal scroll
+  const [showTip, setShowTip] = useState(false);
+
+  // horizontal wheel scroll
   useEffect(() => {
     const el = scrollerRef.current;
     if (!el) return;
@@ -25,82 +24,98 @@ export default function Projects({ items }) {
     return () => el.removeEventListener("wheel", onWheel);
   }, []);
 
-  // DRAG scroll with inertia
+  // drag + inertia
   useEffect(() => {
     const el = scrollerRef.current;
     if (!el) return;
 
-    const onPointerDown = (e) => {
-      dragging.current = true;
-      last.current = { x: e.clientX, t: performance.now(), vx: 0 };
+    let dragging = false;
+    let lastX = 0;
+    let velocity = 0;
+    let lastT = 0;
+    let raf;
+
+    const down = (e) => {
+      dragging = true;
+      lastX = e.clientX;
+      lastT = performance.now();
+      velocity = 0;
       el.setPointerCapture(e.pointerId);
     };
 
-    const onPointerMove = (e) => {
-      if (!dragging.current) return;
-      const dx = last.current.x - e.clientX;
+    const move = (e) => {
+      if (!dragging) return;
+      const dx = lastX - e.clientX;
       el.scrollLeft += dx;
 
       const now = performance.now();
-      const dt = now - last.current.t || 16;
-      last.current.vx = dx / dt;
+      velocity = dx / (now - lastT);
 
-      last.current.x = e.clientX;
-      last.current.t = now;
+      lastX = e.clientX;
+      lastT = now;
     };
 
-    const onPointerUp = () => {
-      dragging.current = false;
+    const up = () => {
+      dragging = false;
+      let v = velocity * 900;
 
-      // inertia
-      let v = last.current.vx * 800; // px/s
-      const friction = 0.0012;
-
-      const animate = () => {
+      const step = () => {
         if (Math.abs(v) < 0.2) return;
-
-        scrollerRef.current.scrollLeft += v;
-        v *= 0.95; // smooth deceleration
-
-        raf.current = requestAnimationFrame(animate);
+        el.scrollLeft += v;
+        v *= 0.95;
+        raf = requestAnimationFrame(step);
       };
-
-      raf.current = requestAnimationFrame(animate);
+      raf = requestAnimationFrame(step);
     };
 
-    el.addEventListener("pointerdown", onPointerDown);
-    window.addEventListener("pointermove", onPointerMove);
-    window.addEventListener("pointerup", onPointerUp);
+    el.addEventListener("pointerdown", down);
+    window.addEventListener("pointermove", move);
+    window.addEventListener("pointerup", up);
 
     return () => {
-      el.removeEventListener("pointerdown", onPointerDown);
-      window.removeEventListener("pointermove", onPointerMove);
-      window.removeEventListener("pointerup", onPointerUp);
-      cancelAnimationFrame(raf.current);
+      el.removeEventListener("pointerdown", down);
+      window.removeEventListener("pointermove", move);
+      window.removeEventListener("pointerup", up);
+      cancelAnimationFrame(raf);
     };
   }, []);
 
-  // Button scroll
-  const scrollByPage = (dir = 1) => {
+  // scroll buttons
+  const scrollByPage = (dir) => {
     const el = scrollerRef.current;
     if (!el) return;
-    const w = el.clientWidth;
-    el.scrollBy({ left: dir * w * 0.9, behavior: "smooth" });
+    el.scrollBy({ left: dir * el.clientWidth * 0.9, behavior: "smooth" });
   };
 
   return (
     <section id="projects" ref={ref} className="projects-section">
-      {/* CENTERED BUTTONS */}
-      <div className="projects-buttons-center">
-        <button className="proj-scroll-btn" onClick={() => scrollByPage(-1)}>
-          ‹
-        </button>
-        <button className="proj-scroll-btn" onClick={() => scrollByPage(1)}>
-          ›
-        </button>
-      </div>
 
-      {/* Horizontal Scroller */}
+      {/* Tooltip icon */}
+      
+      {/* Scroll buttons */}
+    <div className="projects-controls-center">
+  <button className="proj-scroll-btn" onClick={() => scrollByPage(-1)}>‹</button>
+
+  <div className="tooltip-wrapper">
+    <div
+      className="tooltip-icon"
+      onClick={() => setShowTip(!showTip)}
+    >
+      i
+    </div>
+
+    {showTip && (
+      <span className="tooltip-inline">
+        Client projects I worked on (not personal).
+      </span>
+    )}
+  </div>
+
+  <button className="proj-scroll-btn" onClick={() => scrollByPage(1)}>›</button>
+</div>
+
+
+      {/* Cards */}
       <div className="projects-horizontal reveal" ref={scrollerRef}>
         {items.map((p) => (
           <AppleCard key={p.title} className="project-vertical-card">
