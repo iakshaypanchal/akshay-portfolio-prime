@@ -12,8 +12,8 @@ export default function Contact({ profile }) {
   const firstTypedAt = useRef(null);
   const lastSubmittedAt = useRef(0);
 
-  const WEB_APP_URL =
-    "https://script.google.com/macros/s/AKfycbwyEUhjYxBbX7hhMToTNSdSdyu-74SUZOlI6V43mM26JQVU8MaVbIECiAu3qDG85mY_kA/exec";
+  const WEB_APP_URL = import.meta.env.VITE_WEB_APP_URL;
+  console.log("Web App URL:", WEB_APP_URL);
 
   const SPAM_LIMIT_MS = 8000; // user must wait 8 seconds between submissions
   const MIN_TYPING_TIME = 2000; // must type for minimum 2 seconds

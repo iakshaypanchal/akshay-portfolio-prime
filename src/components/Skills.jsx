@@ -1,6 +1,5 @@
 import React from "react";
 import AppleCard from "./AppleCard";
-import { Chip } from "primereact/chip";
 import useScrollFade from "../hooks/useScrollFade";
 
 export default function Skills({ skills }) {
@@ -11,7 +10,7 @@ export default function Skills({ skills }) {
       <div className="skills-grid reveal">
         {skills.map((skill) => (
           <AppleCard key={skill} className="skill-card reveal">
-            <Chip label={skill} className="skill-chip" />
+            <div className="apple-chip">{skill}</div>
           </AppleCard>
         ))}
       </div>
