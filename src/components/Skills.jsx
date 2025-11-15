@@ -1,17 +1,25 @@
 import React from "react";
-import AppleCard from "./AppleCard";
 import useScrollFade from "../hooks/useScrollFade";
+import { SKILLS_ICONS } from "../data/profile";
 
-export default function Skills({ skills }) {
+export default function Skills() {
   const ref = useScrollFade();
 
   return (
     <section id="skills" ref={ref}>
-      <div className="skills-grid reveal">
-        {skills.map((skill) => (
-          <AppleCard key={skill} className="skill-card reveal">
-            <div className="apple-chip">{skill}</div>
-          </AppleCard>
+      <div className="skills-icons-flex reveal">
+        {SKILLS_ICONS.map((skill) => (
+          <div
+            key={skill.name}
+            className="skill-icon-wrapper"
+            title={skill.name}
+          >
+            <img
+              src={skill.icon}
+              alt={skill.name}
+              className="skill-only-icon"
+            />
+          </div>
         ))}
       </div>
     </section>

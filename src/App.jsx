@@ -9,6 +9,8 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 import SectionDivider from "./components/SectionDivider";
+// import ExperienceNew from "./components/ExperienceNew";
+import ExperienceLinkedIn from "./components/ExperienceLinkedIn";
 
 export default function App() {
   return (
@@ -17,11 +19,12 @@ export default function App() {
         {/* About (card) */}
         <About profile={PROFILE} />
 
-        <SectionDivider title="Skills" />
+        <SectionDivider title="Skills & Tools" />
         <Skills skills={SKILLS} />
 
-        <SectionDivider title="Experience" />
-        <Experience items={EXPERIENCE} />
+        <SectionDivider title="Work Experience" />
+        {/* <Experience items={EXPERIENCE} /> */}
+        <ExperienceLinkedIn items={EXPERIENCE} />
 
         <SectionDivider title="Projects" />
         <Projects items={PROJECTS} />

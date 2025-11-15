@@ -1,3 +1,15 @@
+import tcsLogo from "../assets/logo/tcs.svg";
+import html from "../assets/logo/html.svg";
+import css from "../assets/logo/css.svg";
+import javascript from "../assets/logo/js.svg";
+import typescript from "../assets/logo/ts.svg";
+import react from "../assets/logo/react.svg";
+import git from "../assets/logo/git.svg";
+import github from "../assets/logo/github.svg";
+import mongoDb from "../assets/logo/mongo.svg";
+import vscode from "../assets/logo/vscode.svg";
+import postman from "../assets/logo/postman.svg";
+
 export const PROFILE = {
   name: "Akshay Panchal",
   title: "Front-End Developer",
@@ -18,22 +30,62 @@ export const SKILLS = [
   "Git & GitHub",
 ];
 
+export const SKILLS_ICONS = [
+  {
+    name: "HTML",
+    icon: html,
+  },
+  {
+    name: "CSS",
+    icon: css,
+  },
+  {
+    name: "JavaScript",
+    icon: javascript,
+  },
+  {
+    name: "TypeScript",
+    icon: typescript,
+  },
+  {
+    name: "React",
+    icon: react,
+  },
+  {
+    name: "Git",
+    icon: git,
+  },
+  {
+    name: "GitHub",
+    icon: github,
+  },
+  {
+    name: "MongoDB",
+    icon: mongoDb,
+  },
+  {
+    name: "vsCode",
+    icon: vscode,
+  },
+  {
+    name: "Postman",
+    icon: postman,
+  },
+];
+
 export const EXPERIENCE = [
   {
-    company: "Tata Consultancy Services (TCS)",
-    role: "Frontend Developer",
-    period: "July 2021 – Present",
-    responsibilities: [
-      "Delivered production-grade frontend solutions across web and mobile platforms using React.js, Angular, Ionic, and PrimeReact.",
-      "Led UI architecture decisions, reusable component development, and modernization of legacy applications.",
-      "Owned requirement gathering, design discussions, sprint planning, and weekly client communication.",
-      "Built shared component libraries including tables, filters, buttons, and chart wrappers to improve consistency across applications.",
-      "Upgraded outdated Angular + Ionic mobile app from a non-functional state to a stable, production-ready version.",
-      "Developed analytical dashboards and responsive layouts using Apache ECharts for data-heavy reporting modules.",
-      "Collaborated with backend, QA, and product teams to deliver features efficiently with high UI/UX quality.",
-      "Improved performance by reducing bundle size, optimizing render cycles, and fixing layout inefficiencies.",
-      "Handled bug triaging, code reviews, refactoring, and implemented best practices for long-term maintainability.",
+    company: "Tata Consultancy Services",
+    title: "Frontend Developer",
+    period: "Jul 2021 – Present",
+    logo: tcsLogo, // optional
+    details: [
+      "Led frontend development for multiple enterprise applications.",
+      "Migrated legacy Angular/Ionic apps to modern versions.",
+      "Developed modular chart components using ECharts.",
+      "Worked directly with client teams for requirement gathering.",
     ],
+    projects: ["EMTrack WebApp", "EMTrack Mobile", "Tire Process Report"],
   },
 ];
 
