@@ -13,7 +13,7 @@ export default function Contact({ profile }) {
   const lastSubmittedAt = useRef(0);
 
   const WEB_APP_URL = import.meta.env.VITE_WEB_APP_URL;
-  console.log("Web App URL:", WEB_APP_URL);
+
 
   const SPAM_LIMIT_MS = 8000; // user must wait 8 seconds between submissions
   const MIN_TYPING_TIME = 2000; // must type for minimum 2 seconds
