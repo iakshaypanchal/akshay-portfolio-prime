@@ -85,7 +85,7 @@ export const EXPERIENCE = [
       "Developed modular chart components using ECharts.",
       "Worked directly with client teams for requirement gathering.",
     ],
-    projects: ["EMTrack WebApp", "EMTrack Mobile", "Tire Process Report"],
+    projects: ["EMTrack WebApp", "EMTrack Mobile", "Tire Process Report", "Email Automation"],
   },
 ];
 

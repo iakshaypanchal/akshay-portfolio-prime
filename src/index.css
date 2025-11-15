@@ -30,30 +30,60 @@ html, body {
   --page-gutter: 40px; /* desktop horizontal padding */
 }
 
+/* =========================================================
+   PREMIUM PAPER BACKGROUND (Victoreke-style)
+========================================================= */
+
 body {
-  font-family: var(--font-text);
-  color: var(--text);
-  background: var(--bg);
-  line-height: 1.5;
+  /* Base warm paper */
+  background-color: #f7f6f4;
+
+  background-image:
+    /* Noise texture (animated below) */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"),
+
+    /* Warm gradient */
+    linear-gradient(180deg, #f8f7f4 0%, #f3f1ed 100%),
+
+    /* Vignette */
+    radial-gradient(circle at center, transparent 70%, rgba(0,0,0,0.06) 100%);
+
+  background-size: cover;
+  background-repeat: repeat;
+  background-attachment: fixed;
+
+  /* Animate grain */
+  animation: noiseFlicker 2.8s infinite steps(2);
 }
 
-/* Ensure text-level elements don't get background */
+/* Ultra subtle flicker animation */
+@keyframes noiseFlicker {
+  0% { opacity: 0.98; }
+  50% { opacity: 1; }
+  100% { opacity: 0.98; }
+}
+
+/* =========================================================
+   GLOBAL ELEMENT PROTECTION
+========================================================= */
+
 p, li, input, textarea, button {
-  font-family: var(--font-text);
-  color: var(--text);
   background: transparent;
-  margin: 0;
+  color: var(--text);
+  font-family: var(--font-text);
 }
 
-/* Container (Layout) - center and control side padding */
+/* =========================================================
+   LAYOUT CONTAINER
+========================================================= */
+
 .container {
   max-width: 1200px;
   margin: 50px auto;
   padding: 0 var(--page-gutter);
 }
 
-/* Make sure apple cards center inside the container on small screens
-   (these classes exist in styles.apple.css; base should not break them) */
+/* AppleCards must not stretch */
 .apple-about-card,
 .apple-contact-card {
   margin-left: auto;
@@ -61,8 +91,11 @@ p, li, input, textarea, button {
   box-sizing: border-box;
 }
 
-/* Small utility: keep inline links from overflowing */
-a { color: inherit; text-decoration: none; }
+/* Clean links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
 /* Footer */
 .site-footer {
@@ -72,17 +105,44 @@ a { color: inherit; text-decoration: none; }
   font-size: 14px;
 }
 
-/* Responsive tweaks for mobile */
+/* =========================================================
+   APPLE-GRADE GLOBAL SHADOW ENHANCEMENT
+   All cards automatically get deeper, softer shadows
+========================================================= */
+
+.apple-card,
+.experience-linkedin-card,
+.contact-field-panel {
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .3s ease, transform .25s ease;
+  background: var(--card-bg);
+}
+
+.apple-card:hover,
+.experience-linkedin-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+/* Bigger cards get deeper shadow */
+.apple-about-card,
+.apple-contact-card {
+  box-shadow: var(--shadow-lg);
+  border-radius: 28px;
+}
+
+/* =========================================================
+   RESPONSIVE LAYOUT
+========================================================= */
+
 @media (max-width: 900px) {
   :root { --page-gutter: 24px; }
 
-  /* reduce large paddings that visually push content */
   .container {
-    margin: 28px auto;
+    margin: 32px auto;
     padding: 0 var(--page-gutter);
   }
 
-  /* reduce about/contact card paddings so they remain centered */
   .apple-about-card,
   .apple-contact-card {
     padding-left: 22px !important;
@@ -94,25 +154,21 @@ a { color: inherit; text-decoration: none; }
   :root { --page-gutter: 16px; }
 
   .container {
-    margin: 20px auto;
+    margin: 22px auto;
     padding: 0 var(--page-gutter);
   }
 
-  /* ensure horizontal ribbon has comfortable spacing */
-  .projects-horizontal {
-    gap: 18px;
-    padding-bottom: 12px;
-  }
-
-  /* slightly smaller avatar on tiny screens */
   .hero-photo {
-    width: 160px !important;
-    height: 160px !important;
+    width: 155px !important;
+    height: 155px !important;
   }
 }
 
-/* Accessibility focus styles (keep visible outlines) */
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
 :focus {
-  outline: 3px solid rgba(0,0,0,0.06);
+  outline: 3px solid rgba(0,0,0,0.08);
   outline-offset: 2px;
 }
