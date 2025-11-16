@@ -53,14 +53,13 @@ body {
   background-attachment: fixed;
 
   /* Animate grain */
-  animation: noiseFlicker 2.8s infinite steps(2);
+  animation: noiseFlicker 4s infinite ease-in-out;
 }
 
 /* Ultra subtle flicker animation */
 @keyframes noiseFlicker {
-  0% { opacity: 0.98; }
+  0%, 100% { opacity: 0.99; }
   50% { opacity: 1; }
-  100% { opacity: 0.98; }
 }
 
 /* =========================================================

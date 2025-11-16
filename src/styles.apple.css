@@ -18,13 +18,25 @@
 }
 
 /* ---------- SECTION DIVIDER ---------- */
-.section-divider {
-  height: 1px;
-  margin: 22px 0;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.02));
+.section-divider-wrapper {
+  margin: 36px 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-:root.dark .section-divider {
+.section-divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.02));
+  border-radius: 2px;
+}
+
+.section-divider-line.right {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.06));
+}
+
+:root.dark .section-divider-line {
   background: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0.03),
@@ -32,18 +44,39 @@
   );
 }
 
+:root.dark .section-divider-line.right {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.03)
+  );
+}
+
+.section-divider-title {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.02);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+:root.dark .section-divider-title {
+  background: rgba(255, 255, 255, 0.03);
+}
+
 /* ---------- REVEAL ANIMATION ---------- */
 .reveal {
   opacity: 0;
-  transform: translateY(18px);
+  transform: translateY(25px) scale(0.98);
   will-change: opacity, transform;
-  transition: opacity 560ms cubic-bezier(0.2, 0.9, 0.3, 1),
-    transform 560ms cubic-bezier(0.2, 0.9, 0.3, 1);
+  transition: opacity 700ms cubic-bezier(0.2, 0.9, 0.3, 1),
+    transform 700ms cubic-bezier(0.2, 0.9, 0.3, 1);
 }
 
 .reveal.in-view {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 /* ---------- GLOBAL SPACING ---------- */
@@ -75,7 +108,7 @@ section {
 }
 
 .apple-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-6px) rotateZ(0.5deg) scale(1.01);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.09);
 }
 
@@ -99,6 +132,12 @@ section {
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-photo:hover {
+  transform: scale(1.03) rotateZ(-1deg);
+  box-shadow: 0 12px 50px rgba(0, 0, 0, 0.25);
 }
 
 .apple-about-card {
@@ -126,6 +165,12 @@ section {
   text-align: center;
   width: 120px !important;
   padding: 16px !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.social-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .social-icon {
@@ -198,7 +243,7 @@ section {
 }
 
 .project-vertical-card:hover {
-  transform: translateY(-10px) scale(1.02);
+  transform: translateY(-10px) scale(1.02) rotateZ(0.7deg);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
 }
 
@@ -626,7 +671,7 @@ textarea.apple-input {
 
 /* Scale animation on hover */
 .skill-icon-wrapper:hover {
-  transform: scale(1.15);
+  transform: scale(1.15) rotateZ(2deg);
 }
 
 /* The actual icon */

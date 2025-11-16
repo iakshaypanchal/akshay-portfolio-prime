@@ -124,6 +124,6 @@ Stabilized & optimized the React.js application—fixed critical bugs and improv
 Built responsive UI using Material-UI.
 Developed ‘Remove All Tires’ bulk operation reducing repetitive manual steps.
 Led client communication & requirement alignment.
-Awarded **Star of the Month** for key contributions.`,
+Awarded "Star of the Month" for key contributions.`,
   },
 ];
