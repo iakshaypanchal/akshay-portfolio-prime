@@ -1,10 +1,14 @@
+
 import React from "react";
 import useScrollFade from "../hooks/useScrollFade";
+import useTypingEffect from "../hooks/useTypingEffect";
 import profileImg from "../assets/profile.webp";
 import AppleCard from "./AppleCard";
 
 export default function About({ profile }) {
   const ref = useScrollFade();
+  const { displayedText: name, isComplete: nameComplete } = useTypingEffect(profile.name, 80, 500);
+  const { displayedText: title } = useTypingEffect(profile.title, 60, nameComplete ? 800 : 2000);
 
   return (
     <section id="about" ref={ref}>
@@ -15,14 +19,17 @@ export default function About({ profile }) {
         </div>
 
         {/* Name + Title */}
-        <h1 className="hero-title">{profile.name}</h1>
-        <p className="hero-subtitle">{profile.title}</p>
+        <h1 className="hero-title">
+          {name}
+          <span className="typing-cursor">|</span>
+        </h1>
+        <p className="hero-subtitle">{title}<span className="typing-cursor">|</span></p>
 
         {/* Social Cards */}
         <div className="about-social-cards">
           {/* LinkedIn */}
           <AppleCard
-            className="social-card"
+            className="social-card ripple-effect"
             onClick={() => window.open(profile.linkedin, "_blank")}
           >
             <div className="social-icon">
@@ -33,7 +40,7 @@ export default function About({ profile }) {
 
           {/* Email */}
           <AppleCard
-            className="social-card"
+            className="social-card ripple-effect"
             onClick={() => (window.location.href = `mailto:${profile.email}`)}
           >
             <div className="social-icon">
@@ -44,7 +51,7 @@ export default function About({ profile }) {
 
           {/* GitHub */}
           <AppleCard
-            className="social-card"
+            className="social-card ripple-effect"
             onClick={() =>
               window.open("https://github.com/iakshaypanchal", "_blank")
             }
@@ -66,3 +73,5 @@ export default function About({ profile }) {
     </section>
   );
 }
+
+

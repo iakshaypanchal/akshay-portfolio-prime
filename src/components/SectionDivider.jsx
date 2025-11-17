@@ -1,4 +1,7 @@
+
+
 import React from "react";
+import useScrollFade from "../hooks/useScrollFade";
 
 /**
  * Apple-style subtle divider with title and thin line.
@@ -6,8 +9,11 @@ import React from "react";
  *  - title (string) optional
  */
 export default function SectionDivider({ title }) {
+  const ref = useScrollFade();
+  
   return (
     <div
+      ref={ref}
       className="section-divider-wrapper reveal"
     >
       <div className="section-divider-line left" />

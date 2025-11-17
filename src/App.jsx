@@ -7,17 +7,36 @@ import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import AnimatedBackground from "./components/AnimatedBackground";
+import ThemeToggle from "./components/ThemeToggle";
+import CustomCursor from "./components/CustomCursor";
+import ScrollProgress from "./components/ScrollProgress";
+import BackToTop from "./components/BackToTop";
+import LoadingScreen from "./components/LoadingScreen";
+import StatsCounter from "./components/StatsCounter";
 
 import SectionDivider from "./components/SectionDivider";
+import useRipple from "./hooks/useRipple";
 // import ExperienceNew from "./components/ExperienceNew";
 import ExperienceLinkedIn from "./components/ExperienceLinkedIn";
 
 export default function App() {
+  useRipple();
+  
   return (
     <div className="app-root">
+      <LoadingScreen />
+      <AnimatedBackground />
+      <ScrollProgress />
+      <ThemeToggle />
+      <CustomCursor />
+      <BackToTop />
       <main className="container">
         {/* About (card) */}
         <About profile={PROFILE} />
+
+        {/* Stats Counter */}
+        <StatsCounter />
 
         <SectionDivider title="Skills & Tools" />
         <Skills skills={SKILLS} />

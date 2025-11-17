@@ -1,3 +1,4 @@
+
 /* ---------------------------------------------------------
    BASE STYLES (Global + Layout Only)
    Apple theme is applied separately via styles.apple.css
@@ -17,6 +18,11 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-padding-top: 80px;
 }
 
 /* Typography variables */
@@ -171,3 +177,46 @@ a {
   outline: 3px solid rgba(0,0,0,0.08);
   outline-offset: 2px;
 }
+
+/* =========================================================
+   RIPPLE EFFECT FOR BUTTONS
+========================================================= */
+
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(0);
+  animation: ripple-animation 0.6s ease-out;
+  pointer-events: none;
+}
+
+:root.dark .ripple {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Apply ripple to common buttons */
+button,
+.social-card,
+.apple-card,
+.proj-scroll-btn,
+.exp-project-btn,
+.quick-btn,
+.contact-send-btn,
+.back-to-top {
+  position: relative;
+  overflow: hidden;
+}
+

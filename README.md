@@ -1,51 +1,52 @@
-# Personal Portfolio – React + Vite (Apple-Inspired UI)
+# 🚀 Modern Portfolio - Akshay Panchal
 
-A modern, minimal, Apple-styled personal portfolio built with **React**, **Vite**, and custom CSS inspired by **macOS Sonoma & Apple.com**.  
-Includes a fully functional **contact form integrated with Google Sheets** using Apps Script (no backend server required).
+A stunning, premium portfolio website with **Apple-inspired design** featuring advanced animations, glassmorphism, and interactive elements. Built with **React**, **Vite**, and cutting-edge CSS techniques.
 
----
-
-## 🚀 Tech Stack
-
-### **Frontend**
-- React 18  
-- Vite  
-- PrimeIcons (icons only)  
-- Vanilla CSS (custom Apple design system)  
-- IntersectionObserver scroll animations  
-- Custom Apple-style UI components
-
-### **Contact Form Backend**
-- Google Apps Script Web App  
-- Google Sheets as database  
-- JSON POST handler (no external server)
+[![React](https://img.shields.io/badge/React-18.3.1-blue.svg)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-5.4.2-646CFF.svg)](https://vitejs.dev/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 ---
 
-## 📦 Features
+## ✨ Features
 
-### **🍏 Apple-Inspired Design**
-- macOS login-style centered avatar  
-- Soft, floating cards with depth shadows  
-- Glass-blur contact form panel  
-- Smooth fade-in scroll animation  
-- Rounded inputs styled like macOS Sonoma  
-- Horizontal project slider inspired by Apple TV
+### 🎨 **Visual Excellence**
+- **Animated Gradient Background** - Floating colorful orbs with smooth motion
+- **Glassmorphism UI** - Frosted glass cards with backdrop blur
+- **Custom Cursor** - Interactive cursor with sparkle particle trail
+- **Loading Animation** - Stunning logo reveal on first visit
+- **Theme Toggle** - Seamless dark/light mode with persistence
 
-### **📂 Sections**
-- **About** – avatar, name, title, summary, social icons  
-- **Skills** – responsive grid  
-- **Experience** – timeline cards  
-- **Projects** – horizontal scroll carousel  
-  - drag scroll with inertia  
-  - snap scrolling  
-  - left/right buttons  
-- **Contact** – Apple-glass input panel + Google Sheets integration
+### 🎭 **Advanced Animations**
+- **Typing Effect** - Typewriter animation for hero section
+- **3D Skill Icons** - Floating icons that rotate and spin on hover
+- **Count-Up Stats** - Animated achievement counters
+- **Ripple Effects** - Material Design micro-interactions
+- **Scroll Animations** - Smooth reveal effects throughout
 
-### **📱 Fully Responsive**
-- Mobile-first layout  
-- Auto-scaled cards  
-- Projects carousel adapts nicely on touch screens  
+### 🚀 **Interactive Elements**
+- **Scroll Progress Bar** - Visual feedback on page position
+- **Back to Top Button** - Quick navigation with bounce animation
+- **Enhanced Section Dividers** - Gradient lines with shimmer effects
+- **Magnetic Hover** - Cursor expands near interactive elements
+- **Smooth Scrolling** - Buttery smooth navigation
+
+### 📱 **Fully Responsive**
+- Mobile-first design
+- Adaptive layouts for all screen sizes
+- Touch-optimized interactions
+- Progressive enhancement
+
+---
+
+## 🎯 What Makes This Portfolio Special
+
+✅ **12+ Premium Features** - Loading screen, stats counter, custom cursor, ripple effects, and more  
+✅ **Apple-Inspired Design** - Clean, minimal, professional aesthetic  
+✅ **Glassmorphism** - Modern frosted glass UI throughout  
+✅ **Dark Mode** - Complete dark theme with smooth transitions  
+✅ **Advanced Animations** - 3D transforms, particles, and smooth transitions  
+✅ **Production Ready** - Optimized, performant, and SEO-friendly  
 
 ---
 
