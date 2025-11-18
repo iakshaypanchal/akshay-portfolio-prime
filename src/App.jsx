@@ -21,6 +21,7 @@ import useRipple from "./hooks/useRipple";
 import ExperienceLinkedIn from "./components/ExperienceLinkedIn";
 import ContactNew from "./components/ContactNew";
 
+
 export default function App() {
   useRipple();
   
@@ -35,9 +36,10 @@ export default function App() {
       <main className="container">
         {/* About (card) */}
         <About profile={PROFILE} />
+        {/* <AboutNew profile={PROFILE} /> */}
 
         {/* Stats Counter */}
-        <StatsCounter />
+        {/* <StatsCounter /> */}
 
         <SectionDivider title="Skills & Tools" />
         <Skills skills={SKILLS} />
