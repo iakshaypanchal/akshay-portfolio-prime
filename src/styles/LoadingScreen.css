@@ -38,7 +38,7 @@
 .logo-letter {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, #0071e3 0%, #005bb5 100%);
+  background: linear-gradient(135deg, #3B82F6 0%, #005bb5 100%);
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -83,14 +83,14 @@
 
 .loading-text {
   font-size: 18px;
-  color: #0071e3;
+  color: #3B82F6;
   font-weight: 600;
   margin-bottom: 20px;
   animation: pulse 1.5s ease-in-out infinite;
 }
 
 :root.dark .loading-text {
-  color: #38bdf8;
+  color: #3B82F6;
 }
 
 @keyframes pulse {
@@ -117,13 +117,13 @@
 
 .loading-progress {
   height: 100%;
-  background: linear-gradient(90deg, #0071e3, #00b4d8);
+  background: linear-gradient(90deg, #3B82F6, #00b4d8);
   border-radius: 10px;
   animation: loadingProgress 2s ease-out forwards;
 }
 
 :root.dark .loading-progress {
-  background: linear-gradient(90deg, #0ea5e9, #38bdf8);
+  background: linear-gradient(90deg, #0ea5e9, #3B82F6);
 }
 
 @keyframes loadingProgress {

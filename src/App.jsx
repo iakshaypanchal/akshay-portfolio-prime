@@ -19,6 +19,7 @@ import SectionDivider from "./components/SectionDivider";
 import useRipple from "./hooks/useRipple";
 // import ExperienceNew from "./components/ExperienceNew";
 import ExperienceLinkedIn from "./components/ExperienceLinkedIn";
+import ContactNew from "./components/ContactNew";
 
 export default function App() {
   useRipple();
@@ -42,14 +43,15 @@ export default function App() {
         <Skills skills={SKILLS} />
 
         <SectionDivider title="Work Experience" />
-        {/* <Experience items={EXPERIENCE} /> */}
-        <ExperienceLinkedIn items={EXPERIENCE} />
+        <Experience items={EXPERIENCE} />
+        {/* <ExperienceLinkedIn items={EXPERIENCE} /> */}
 
         <SectionDivider title="Projects" />
         <Projects items={PROJECTS} />
 
         <SectionDivider title="Contact" />
-        <Contact profile={PROFILE} />
+        {/* <Contact profile={PROFILE} /> */}
+        <ContactNew  profile={PROFILE}/>
       </main>
 
       <Footer profile={PROFILE} />

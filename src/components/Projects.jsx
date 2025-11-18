@@ -1,6 +1,7 @@
+
 import React, { useRef, useState, useEffect } from "react";
-import AppleCard from "./AppleCard";
 import useScrollFade from "../hooks/useScrollFade";
+import "../styles/Projects.css";
 
 export default function Projects({ items }) {
   const ref = useScrollFade();
@@ -117,23 +118,33 @@ export default function Projects({ items }) {
 
       {/* Cards */}
       <div className="projects-horizontal reveal" ref={scrollerRef}>
-        {items.map((p) => (
-          <AppleCard key={p.title} className="project-vertical-card">
-            <h3>{p.title}</h3>
-            <p className="muted">{p.period}</p>
+        {items.map((p, idx) => (
+          <div key={p.title} className="project-card-wrapper">
+            <div className="project-card">
+              {/* Project header */}
+              <div className="project-header">
+                <div className="project-number">0{idx + 1}</div>
+                <h3 className="project-title">{p.title}</h3>
+                <p className="project-period">{p.period}</p>
+              </div>
 
-            <ul className="project-bullets">
-              {p.description
-                .split("\n")
-                .map((l) => l.trim())
-                .filter(Boolean)
-                .flatMap((l) => l.split(".").map((s) => s.trim()))
-                .filter(Boolean)
-                .map((bul, i) => (
-                  <li key={i}>{bul}</li>
-                ))}
-            </ul>
-          </AppleCard>
+              {/* Project description */}
+              <ul className="project-features-list">
+                {p.description
+                  .split("\n")
+                  .map((l) => l.trim())
+                  .filter(Boolean)
+                  .map((bul, i) => (
+                    <li key={i}>{bul}</li>
+                  ))}
+              </ul>
+
+              {/* Project footer with tech stack or links */}
+              <div className="project-footer">
+               
+              </div>
+            </div>
+          </div>
         ))}
       </div>
     </section>
